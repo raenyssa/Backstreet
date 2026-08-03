@@ -1,19 +1,21 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FleeNPC : MonoBehaviour
+public class JayWalkNPC : MonoBehaviour
 {
     public Transform player;
     public float detectionRange = 5.0f;
     public float fleeDistance = 5.0f;
     public float runSpeed = 6.0f;
     public float walkSpeed = 3.5f;
+    public float catchDistance = 1.0f;
 
     public Transform leftPoint;
     public Transform rightPoint;
 
     private NavMeshAgent agent;
     private Transform currentPatrolTarget;
+    private bool isCaught = false;
 
     void Start()
     {
@@ -24,7 +26,15 @@ public class FleeNPC : MonoBehaviour
 
     void Update()
     {
+        if (isCaught) return;
+
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= catchDistance)
+        {
+            TriggerCaughtState();
+            return;
+        }
 
         if (distanceToPlayer <= detectionRange)
         {
@@ -40,15 +50,12 @@ public class FleeNPC : MonoBehaviour
     {
         agent.speed = runSpeed;
 
-        // Calculate direction away from the player
         Vector3 directionAwayFromPlayer = transform.position - player.position;
-        directionAwayFromPlayer.y = 0; // Keep movement on a flat plane
+        directionAwayFromPlayer.y = 0;
         directionAwayFromPlayer.Normalize();
 
-        // Target a position in that opposite direction
         Vector3 fleeTargetPosition = transform.position + (directionAwayFromPlayer * fleeDistance);
 
-        // Verify the target position is valid on the NavMesh
         NavMeshHit hit;
         if (NavMesh.SamplePosition(fleeTargetPosition, out hit, fleeDistance, NavMesh.AllAreas))
         {
@@ -60,7 +67,6 @@ public class FleeNPC : MonoBehaviour
     {
         agent.speed = walkSpeed;
 
-        // If the NPC was fleeing, it might have stopped. Ensure it has a destination.
         if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
         {
             if (currentPatrolTarget == leftPoint)
@@ -72,6 +78,34 @@ public class FleeNPC : MonoBehaviour
         if (currentPatrolTarget != null)
         {
             agent.SetDestination(currentPatrolTarget.position);
+        }
+    }
+
+    void TriggerCaughtState()
+    {
+        isCaught = true;
+
+        agent.isStopped = true;
+        agent.enabled = false;
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.isKinematic = true;
+        }
+
+        Debug.Log("NPC has been Caught!");
+
+        // TODO: Trigger caught animation or UI screen here
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform == player && !isCaught)
+        {
+            TriggerCaughtState();
         }
     }
 }
