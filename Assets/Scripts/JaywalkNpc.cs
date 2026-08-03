@@ -1,16 +1,40 @@
 using UnityEngine;
+using UnityEngine.AI;
 
-public class NavMeshScript : MonoBehaviour
+public class JaywalkNPC : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Transform leftPoint;
+    public Transform rightPoint;
+    
+    private NavMeshAgent agent;
+    private Transform currentTarget;
+
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         
+        // Start by walking to the left point
+        currentTarget = leftPoint;
+        agent.SetDestination(currentTarget.position);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Check if the agent has reached its destination
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        {
+            // Switch targets
+            if (currentTarget == leftPoint)
+            {
+                currentTarget = rightPoint;
+            }
+            else
+            {
+                currentTarget = leftPoint;
+            }
+
+            // Set the new destination
+            agent.SetDestination(currentTarget.position);
+        }
     }
 }
