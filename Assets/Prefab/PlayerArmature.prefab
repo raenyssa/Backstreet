@@ -947,6 +947,8 @@ GameObject:
   - component: {fileID: 2807588282630229299}
   - component: {fileID: 5822517880589434846}
   - component: {fileID: 4644892330436519198}
+  - component: {fileID: 6097255352097375297}
+  - component: {fileID: 3219339824055875563}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -1250,6 +1252,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6097255352097375297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465613965070007799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681945552199ac34b9797fdb5631b9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
+  playerMesh: {fileID: 2965692277864262490}
+  interactDistance: 3
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  currentCollider: {fileID: 0}
+--- !u!114 &3219339824055875563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465613965070007799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c081b438ff7f248b74eda219bfdd14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveCamera
+  playerCamera: {fileID: 1572874916760663673}
 --- !u!1 &3686554275254330018
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,8 +14,8 @@ public class JayWalkNPC : MonoBehaviour
     public Transform player;
     public float detectionRange = 5.0f;
     public float fleeDistance = 5.0f;
-    public float runSpeed = 6.0f;
-    public float walkSpeed = 3.5f;
+    public float runSpeed = 4.0f;
+    public float walkSpeed = 2f;
     public float catchDistance = 1.0f;
 
     public Transform leftPoint;
@@ -74,20 +74,28 @@ public class JayWalkNPC : MonoBehaviour
 
     void TriggerCaughtState()
     {
-        isCaught = true;
-
-        agent.isStopped = true;
-        agent.enabled = false;
-
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (rb != null)
+        if (isCaught != true)
         {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.isKinematic = true;
-        }
 
-        Debug.Log("NPC has been Caught!");
+            isCaught = true;
+
+            agent.isStopped = true;
+            agent.enabled = false;
+
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                rb.isKinematic = true;
+            }
+
+            Debug.Log("NPC has been Caught!");
+        }
+        else
+        {
+            return;
+        }
 
         // TODO: Trigger caught animation or UI screen here
     }
@@ -105,14 +113,13 @@ public class JayWalkNPC : MonoBehaviour
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= detectionRange)
-        {
-            npcState = NPCState.Running;
-        }
-
-        else if (PlayerScript.IsCaught())
+        if (PlayerScript.IsCaught())
         {
             npcState = NPCState.Caught;
+        }
+        else if (distanceToPlayer <= detectionRange)
+        {
+            npcState = NPCState.Running;
         }
         else
         {

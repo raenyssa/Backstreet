@@ -4,15 +4,15 @@ using UnityEngine.InputSystem;
 public class PlayerScript : MonoBehaviour
 {
     int score = 0;
-    public int keycards = 0;
 
     [SerializeField]
-    private GameObject playerCamera;
+    private GameObject playerMesh;
 
     [SerializeField]
-    private float interactDistance = 3f;
+    private float interactDistance = 6f;
 
-    public AudioSource audioSource;
+    [SerializeField]
+    private LayerMask layerMask;
     private GameObject currentNPC;
 
     public static bool caughtNPC = false;
@@ -20,12 +20,14 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     GameObject currentCollider;
 
-    void OnInteract(InputValue value)
+    void OnInteract()
     {
+        print("Interacting");
 
-        if (Physics.Raycast(playerCamera.transform.position,
-            playerCamera.transform.forward, out RaycastHit hit, interactDistance))
+        if (Physics.Raycast(playerMesh.transform.position + new Vector3(0, 0.5f, 0),    
+            playerMesh.transform.forward, out RaycastHit hit, interactDistance, layerMask))
         {
+            
             Debug.Log(hit.collider.tag);
             if (hit.collider.CompareTag("NPC"))
             {   
