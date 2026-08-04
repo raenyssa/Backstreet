@@ -1,8 +1,16 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+enum NPCState
+{
+    Idle,
+    Running,
+    Caught
+}
+
 public class JayWalkNPC : MonoBehaviour
 {
+    [SerializeField] NPCState npcState = NPCState.Idle;
     public Transform player;
     public float detectionRange = 5.0f;
     public float fleeDistance = 5.0f;
@@ -26,24 +34,7 @@ public class JayWalkNPC : MonoBehaviour
 
     void Update()
     {
-        if (isCaught) return;
-
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        if (distanceToPlayer <= catchDistance)
-        {
-            TriggerCaughtState();
-            return;
-        }
-
-        if (distanceToPlayer <= detectionRange)
-        {
-            FleeFromPlayer();
-        }
-        else
-        {
-            PatrolBetweenPoints();
-        }
+        StateMachine();
     }
 
     void FleeFromPlayer()
@@ -107,5 +98,41 @@ public class JayWalkNPC : MonoBehaviour
         {
             TriggerCaughtState();
         }
+    }
+
+
+    void StateMachine()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= detectionRange)
+        {
+            npcState = NPCState.Running;
+        }
+
+        else if (PlayerScript.IsCaught())
+        {
+            npcState = NPCState.Caught;
+        }
+        else
+        {
+            npcState = NPCState.Idle;
+        }
+
+        switch (npcState)
+        {
+            case NPCState.Idle:
+                PatrolBetweenPoints();
+                break;
+            case NPCState.Running:
+                FleeFromPlayer();
+                break;
+            case NPCState.Caught:
+                TriggerCaughtState();
+                break;
+        }
+
+        //NPC caught 
+        if (isCaught) return;
     }
 }
