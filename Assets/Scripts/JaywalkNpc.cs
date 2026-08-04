@@ -82,6 +82,8 @@ public class JayWalkNPC : MonoBehaviour
             agent.isStopped = true;
             agent.enabled = false;
 
+            print(agent.isStopped);
+
             Rigidbody rb = GetComponent<Rigidbody>();
             if (rb != null)
             {

@@ -28,7 +28,7 @@ public class PlayerScript : MonoBehaviour
             playerMesh.transform.forward, out RaycastHit hit, interactDistance, layerMask))
         {
             
-            Debug.Log(hit.collider.tag);
+            Debug.Log("hit");
             if (hit.collider.CompareTag("NPC"))
             {   
 
