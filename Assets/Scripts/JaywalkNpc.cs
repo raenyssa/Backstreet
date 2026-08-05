@@ -17,6 +17,7 @@ public class JayWalkNPC : MonoBehaviour
     public float runSpeed = 4.0f;
     public float walkSpeed = 2f;
     public float catchDistance = 1.0f;
+    private GameObject currentscore;
 
     public Transform leftPoint;
     public Transform rightPoint;
@@ -24,6 +25,7 @@ public class JayWalkNPC : MonoBehaviour
     private NavMeshAgent agent;
     private Transform currentPatrolTarget;
     private bool isCaught = false;
+    int score = 0;
 
     void Start()
     {
@@ -93,6 +95,9 @@ public class JayWalkNPC : MonoBehaviour
             }
 
             Debug.Log("NPC has been Caught!");
+            score += 1000;
+            UIManager.Instance.UpdateScore(score);
+
         }
         else
         {

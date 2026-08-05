@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private LayerMask layerMask;
     private GameObject currentNPC;
+    private GameObject currentscore;
 
     public static bool caughtNPC = false;
 
