@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms.Impl;
+using TMPro;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -15,6 +17,9 @@ public class PlayerScript : MonoBehaviour
     private LayerMask layerMask;
     private GameObject currentNPC;
     private GameObject currentscore;
+    private GameObject currentdoor;
+    private GameObject currentTaskNPC;
+    public UIManager MyUIManager; // Reference to the UIManager script
 
     public static bool caughtNPC = false;
 
@@ -41,6 +46,34 @@ public class PlayerScript : MonoBehaviour
             {
                 currentNPC = null;
             }
+            if (hit.collider.CompareTag("Door"))
+            {
+                print($"Looking at {hit.collider.gameObject.name}");
+                currentdoor=hit.collider.gameObject;
+            }
+            else
+            {
+                    currentdoor=null;
+            }
+            if (hit.collider.CompareTag("TaskNPC"))
+            {
+                print($"Looking at {hit.collider.gameObject.name}");
+                currentTaskNPC=hit.collider.gameObject;
+            }
+            else
+            {
+                    currentTaskNPC=null;
+            }
+        }
+        if (currentTaskNPC != null)
+        {
+            TasksNPC taskNPC = currentTaskNPC.GetComponent<TasksNPC>();
+            print("Interacting with TaskNPC");
+            MyUIManager.OpenMissionPanel();
+        }
+        else
+        {
+            MyUIManager.CloseMissionPanel();
         }
     }
 

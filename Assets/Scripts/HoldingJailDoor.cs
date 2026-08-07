@@ -3,27 +3,13 @@ using UnityEngine;
 public class HoldingJailDoor : MonoBehaviour
 {
     private Animator _doorAnim;
-
-    void Start()
-    {
-        _doorAnim = GetComponent<Animator>();
-    }
+    private bool isOpen = true;
 
     public void Open()
     {
-        _doorAnim.SetBool("IsHoldingJailOpen", true);
+        var animatorComponent = GetComponent<Animator>();
+        animatorComponent.SetBool("IsHoldingJailOpen", isOpen);
+        isOpen = !isOpen;
     }
 
-    public void Close()
-    {
-        _doorAnim.SetBool("IsHoldingJailOpen", false);
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Open();
-        }
-    }
 }
