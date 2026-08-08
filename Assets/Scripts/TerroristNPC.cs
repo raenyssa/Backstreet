@@ -2,16 +2,16 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-enum NPCState
+enum TerroristNPCState
 {
     Idle,
     Running,
     Caught
 }
 
-public class JayWalkNPC : MonoBehaviour
+public class TerroristNPC : MonoBehaviour
 {
-    [SerializeField] NPCState npcState = NPCState.Idle;
+    [SerializeField] TerroristNPCState npcState = TerroristNPCState.Idle;
     public Transform player;
     public float detectionRange = 5.0f;
     public float fleeDistance = 5.0f;
@@ -23,7 +23,7 @@ public class JayWalkNPC : MonoBehaviour
     public Transform leftPoint;
     public Transform rightPoint;
     public int score = 0;
-    public string NPCName = "Jaywalker";
+    public string NPCName = "Terrorist";
 
     private NavMeshAgent agent;
     private Transform currentPatrolTarget;
@@ -135,26 +135,26 @@ public class JayWalkNPC : MonoBehaviour
 
         if (PlayerScript.IsCaught())
         {
-            npcState = NPCState.Caught;
+            npcState = TerroristNPCState.Caught;
         }
         else if (distanceToPlayer <= detectionRange)
         {
-            npcState = NPCState.Running;
+            npcState = TerroristNPCState.Running;
         }
         else
         {
-            npcState = NPCState.Idle;
+            npcState = TerroristNPCState.Idle;
         }
 
         switch (npcState)
         {
-            case NPCState.Idle:
+            case TerroristNPCState.Idle:
                 PatrolBetweenPoints();
                 break;
-            case NPCState.Running:
+            case TerroristNPCState.Running:
                 FleeFromPlayer();
                 break;
-            case NPCState.Caught:
+            case TerroristNPCState.Caught:
                 TriggerCaughtState();
                 break;
         }

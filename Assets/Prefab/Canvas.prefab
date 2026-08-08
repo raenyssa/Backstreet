@@ -71,15 +71,10 @@ MonoBehaviour:
     AVAILABLE
 
 
-
     Catch the Jaywalker
 
 
-
     Reward: 1000 points!
-
-
-
 
 
 
@@ -431,7 +426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7233789243538186042
 RectTransform:
   m_ObjectHideFlags: 0
@@ -440,7 +435,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3713343508975394765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -450,7 +445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5893831663365644328
@@ -608,6 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10134832577f42743aee5f3204d9278a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  caughttext: {fileID: 1807880101722645604}
   scoreText: {fileID: 8735616373879916186}
   CaughtPanel: {fileID: 6112995063771254788}
   MissionPanel: {fileID: 3713343508975394765}
@@ -806,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1547670573460928457, guid: c1f3608c24bb39a4aa4acc07029d5a5d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1547670573460928457, guid: c1f3608c24bb39a4aa4acc07029d5a5d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -829,6 +825,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1f3608c24bb39a4aa4acc07029d5a5d, type: 3}
+--- !u!114 &1807880101722645604 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5409733336879014422, guid: c1f3608c24bb39a4aa4acc07029d5a5d, type: 3}
+  m_PrefabInstance: {fileID: 5910370404076078706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &5152035229583110587 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1547670573460928457, guid: c1f3608c24bb39a4aa4acc07029d5a5d, type: 3}
