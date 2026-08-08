@@ -21,11 +21,12 @@ public class JayWalkNPC : MonoBehaviour
 
     public Transform leftPoint;
     public Transform rightPoint;
+    public int score = 0;
 
     private NavMeshAgent agent;
     private Transform currentPatrolTarget;
     private bool isCaught = false;
-    int score = 0;
+    public UIManager MyUIManager; // Reference to the UIManager script
 
     void Start()
     {
@@ -96,7 +97,7 @@ public class JayWalkNPC : MonoBehaviour
 
             Debug.Log("NPC has been Caught!");
             score += 1000;
-            UIManager.Instance.UpdateScore(score);
+            MyUIManager.UpdateScore(score);
 
         }
         else

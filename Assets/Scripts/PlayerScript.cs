@@ -73,7 +73,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            MyUIManager.CloseMissionPanel();
+            return;
         }
     }
 
