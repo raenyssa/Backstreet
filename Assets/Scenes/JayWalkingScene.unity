@@ -2112,6 +2112,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3713343508975394765, guid: 8cad4d4313d1e5e47a9951876257e928, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948098997139669724, guid: 8cad4d4313d1e5e47a9951876257e928, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112995063771254788, guid: 8cad4d4313d1e5e47a9951876257e928, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7609929813929247656, guid: 8cad4d4313d1e5e47a9951876257e928, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9110055260393887517, guid: 8cad4d4313d1e5e47a9951876257e928, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2176,6 +2192,22 @@ PrefabInstance:
     - target: {fileID: 1450836097935438546, guid: 71f5555c7e98b1244a86a565235e5508, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557289279984640716, guid: 71f5555c7e98b1244a86a565235e5508, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557289279984640716, guid: 71f5555c7e98b1244a86a565235e5508, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98578644
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557289279984640716, guid: 71f5555c7e98b1244a86a565235e5508, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.16800354
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557289279984640716, guid: 71f5555c7e98b1244a86a565235e5508, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 19.344
       objectReference: {fileID: 0}
     - target: {fileID: 1572874916760663673, guid: 71f5555c7e98b1244a86a565235e5508, type: 3}
       propertyPath: m_Layer
@@ -2349,6 +2381,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6097255352097375297, guid: 71f5555c7e98b1244a86a565235e5508, type: 3}
+      propertyPath: MyUIManager
+      value: 
+      objectReference: {fileID: 1446631747}
     - target: {fileID: 6097255352097375297, guid: 71f5555c7e98b1244a86a565235e5508, type: 3}
       propertyPath: playerCamera
       value: 

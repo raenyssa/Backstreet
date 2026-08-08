@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text scoreText; // Reference to the TextMeshProUGUI component for displaying the score
     public GameObject CaughtPanel; // Reference to the panel that shows when the player is caught
     public GameObject MissionPanel; // Reference to the panel that shows mission-related information
+    public GameObject MenuPanel; // Reference to the panel that shows the menu
     public static UIManager Instance { get; internal set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,6 +16,7 @@ public class UIManager : MonoBehaviour
     {
         MissionPanel.SetActive(false);
         CaughtPanel.SetActive(false);
+        MenuPanel.SetActive(false);
     }
 
     public void UpdateScore(int score)
@@ -50,5 +53,17 @@ public class UIManager : MonoBehaviour
         CaughtPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+    public void ToggleMenuPanel()
+    {
+        MenuPanel.SetActive(!MenuPanel.activeSelf);
+        Cursor.visible = MenuPanel.activeSelf;
+        Cursor.lockState = MenuPanel.activeSelf ? 
+                            CursorLockMode.None : 
+                            CursorLockMode.Locked;
+    }
+        public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

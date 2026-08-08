@@ -81,4 +81,8 @@ public class PlayerScript : MonoBehaviour
     {
         return caughtNPC;
     }
+    void OnMenu(InputValue value)
+    {
+        MyUIManager.ToggleMenuPanel();
+    }
 }
