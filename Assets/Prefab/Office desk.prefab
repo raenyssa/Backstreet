@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7170315293654582947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4828594121547708621}
+  m_Layer: 0
+  m_Name: Office desk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4828594121547708621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7170315293654582947}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 337.35605, y: 103.76467, z: 338.80585}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6052940746602231462}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6019875603472961869
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4828594121547708621}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0030212402
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.34856415
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0095825195
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.000000104308114
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 32d8ef7de19d36c41ae618b96347deba, type: 2}
+    - target: {fileID: 919132149155446097, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      propertyPath: m_Name
+      value: office desk
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6584500654405649930}
+  m_SourcePrefab: {fileID: 100100000, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+--- !u!4 &6052940746602231462 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+  m_PrefabInstance: {fileID: 6019875603472961869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6866737253839203356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
+  m_PrefabInstance: {fileID: 6019875603472961869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &6584500654405649930
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866737253839203356}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9030878614809874428, guid: ab350eb94d35e1844b9615c8be82c51a, type: 3}
