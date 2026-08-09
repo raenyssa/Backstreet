@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+        // Drag your Player GameObject here in the Inspector
+    public GameObject player; 
+    
+    // Drag an empty GameObject or Target Pad here to set the destination
+    public Transform destination; 
     public TMP_Text caughttext; // Reference to the TextMeshProUGUI component for displaying the caught message
     public TMP_Text scoreText; // Reference to the TextMeshProUGUI component for displaying the score
     public GameObject CaughtPanel; // Reference to the panel that shows when the player is caught
@@ -66,8 +71,26 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public void CompleteJaywalk()
+    public void CompleteSupermarket()
     {
         
+    }
+    public void CompleteMRT()
+    {
+        
+    }
+    public void TeleportPlayer()
+    {
+
+        Debug.Log("Teleporting player to the destination...");
+        player.transform.position = destination.position; // Teleport
+        // Move the player's position to the destination's position
+        if (player.transform.position == destination.position)
+        {
+            Debug.Log("Player has been teleported to the destination!");
+            Invoke("CloseCaughtPanel", 1f); // Close the caught panel after 1 second
+        }
+
+
     }
 }

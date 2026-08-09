@@ -852,10 +852,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5152035229583110587}
   - {fileID: 9121622312997047859}
   - {fileID: 7233789243538186042}
   - {fileID: 1880414604268603125}
+  - {fileID: 5152035229583110587}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -938,6 +938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10134832577f42743aee5f3204d9278a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  player: {fileID: 0}
+  destination: {fileID: 0}
   caughttext: {fileID: 1807880101722645604}
   scoreText: {fileID: 8735616373879916186}
   CaughtPanel: {fileID: 6112995063771254788}
