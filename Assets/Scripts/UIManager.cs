@@ -62,8 +62,12 @@ public class UIManager : MonoBehaviour
                             CursorLockMode.None : 
                             CursorLockMode.Locked;
     }
-        public void Restart()
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void CompleteJaywalk()
+    {
+        
     }
 }
