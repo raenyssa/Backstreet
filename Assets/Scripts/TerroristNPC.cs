@@ -101,9 +101,9 @@ public class TerroristNPC : MonoBehaviour
             }
 
             Debug.Log("NPC has been Caught!");
-            score += 1000;
+            score += 5000;
             MyUIManager.UpdateScore(score);
-            MyUIManager.UpdateCaughtPanel(NPCName);
+            MyUIManager.UpdateCaughtPanel(NPCName, score);
             StartCoroutine(OpenCaughtPanelAfterDelay(1f));
 
         }

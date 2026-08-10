@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     private GameObject currentscore;
     private GameObject currentdoor;
     private GameObject currentTaskNPC;
+    private GameObject currentTerroristTaskNPC;
     public UIManager MyUIManager; // Reference to the UIManager script
 
     public static bool caughtNPC = false;
@@ -42,38 +43,45 @@ public class PlayerScript : MonoBehaviour
                 currentNPC = hit.collider.gameObject;
                 caughtNPC = true;
             }
-            else
-            {
-                currentNPC = null;
-            }
-            if (hit.collider.CompareTag("Door"))
+            else if (hit.collider.CompareTag("Door"))
             {
                 print($"Looking at {hit.collider.gameObject.name}");
                 currentdoor=hit.collider.gameObject;
             }
-            else
-            {
-                    currentdoor=null;
-            }
-            if (hit.collider.CompareTag("TaskNPC"))
+            else if (hit.collider.CompareTag("TaskNPC"))
             {
                 print($"Looking at {hit.collider.gameObject.name}");
                 currentTaskNPC=hit.collider.gameObject;
             }
+            else if (hit.collider.CompareTag("TerroristTaskNPC"))
+            {
+                print($"Looking at {hit.collider.gameObject.name}");
+                currentTerroristTaskNPC=hit.collider.gameObject;
+            }
             else
             {
-                    currentTaskNPC=null;
+                    currentTerroristTaskNPC=null;
             }
         }
         if (currentTaskNPC != null)
         {
-            TasksNPC taskNPC = currentTaskNPC.GetComponent<TasksNPC>();
+            JaywalkTasksNPC taskNPC = currentTaskNPC.GetComponent<JaywalkTasksNPC>();
             print("Interacting with TaskNPC");
-            MyUIManager.OpenMissionPanel();
+            MyUIManager.OpenJaywalkMissionPanel();
         }
         else
         {
-            return;
+            currentTaskNPC = null;
+        }
+        if (currentTerroristTaskNPC !=null)
+        {
+            TerroristTasksNPC terroristTaskNPC = currentTerroristTaskNPC.GetComponent<TerroristTasksNPC>();
+            print("Interacting with TerroristTaskNPC");
+            MyUIManager.OpenTerroristMissionPanel();
+        }
+        else
+        {
+            currentTerroristTaskNPC = null;
         }
     }
 
@@ -86,3 +94,4 @@ public class PlayerScript : MonoBehaviour
         MyUIManager.ToggleMenuPanel();
     }
 }
+

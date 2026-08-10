@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.AI;
  
-public class TasksNPC : MonoBehaviour
+public class TerroristTasksNPC : MonoBehaviour
 {
     public Transform player;
- 
-    public float stoppingDistance = 4f;
+    public GameObject MyTerroristNPC;
  
     private NavMeshAgent agent;
+    public float stoppingDistance = 4f;
  
     void Awake()
     {
@@ -26,5 +26,6 @@ public class TasksNPC : MonoBehaviour
         if (player == null) return;
  
         agent.SetDestination(player.position);
+        
     }
 }
