@@ -551,6 +551,53 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
+--- !u!1 &815734486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 815734488}
+  - component: {fileID: 815734487}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &815734487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815734486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0224c76bfdfddd04892a6a19233aa6e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  levelName: TerroristScene
+  uiManager: {fileID: 1383110879}
+--- !u!4 &815734488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815734486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 722.4543, y: 0.00001, z: 1036.0554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1853967298}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +932,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96662ef35abf7a64794f3dd215063340, type: 3}
+--- !u!224 &1853967298 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 898095802554381374, guid: 8cad4d4313d1e5e47a9951876257e928, type: 3}
+  m_PrefabInstance: {fileID: 8621883354715368338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1893349735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 96662ef35abf7a64794f3dd215063340, type: 3}
@@ -1373,7 +1425,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 815734488}
     m_Modifications:
     - target: {fileID: 898095802554381374, guid: 8cad4d4313d1e5e47a9951876257e928, type: 3}
       propertyPath: m_Pivot.x
@@ -1490,4 +1542,4 @@ SceneRoots:
   - {fileID: 390880248}
   - {fileID: 1984452016}
   - {fileID: 1399628462}
-  - {fileID: 8621883354715368338}
+  - {fileID: 815734488}

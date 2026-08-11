@@ -100,8 +100,8 @@ public class UIManager : MonoBehaviour
         MenuPanel.SetActive(!MenuPanel.activeSelf);
         Cursor.visible = MenuPanel.activeSelf;
         Cursor.lockState = MenuPanel.activeSelf ? 
-                            CursorLockMode.None : 
-                            CursorLockMode.Locked;
+        CursorLockMode.None : 
+        CursorLockMode.Locked;
     }
 
     public void Restart()
@@ -116,6 +116,12 @@ public class UIManager : MonoBehaviour
 
     public void CompleteMRT()
     {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName != "Marilyn's scene")
+        {
+            return;
+        }
+
         Debug.Log("MRT mission completed! Loading JaywalkScene...");
         CloseCaughtPanel();
         SceneManager.LoadScene("JaywalkScene");
@@ -123,6 +129,13 @@ public class UIManager : MonoBehaviour
 
     public void TeleportPlayer()
     {
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName != "JaywalkScene")
+        {
+            return;
+        }
+
         if (player == null || destination == null) return;
 
         PlayerScript.caughtNPC = false; // Reset the caught state before teleporting;
@@ -146,10 +159,11 @@ public class UIManager : MonoBehaviour
         
         // Safely move using our helper method
         ExecuteTeleport(player, JaywalkDestination.transform.position);
-        if (JaywalkTaskNPC != null)
-        {
-            Destroy(JaywalkTaskNPC); // Destroy the JaywalkTaskNPC GameObject after teleporting
-        }
+
+        Debug.Log("Destroying at" + JaywalkTaskNPC.transform.position);
+
+        Destroy(JaywalkTaskNPC); // Destroy the JaywalkTaskNPC GameObject after teleporting
+
     }
     public void AcceptTerroristMission()
     {

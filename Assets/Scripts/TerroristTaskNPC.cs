@@ -35,7 +35,7 @@ public class TerroristTasksNPC : MonoBehaviour
     {
         if (player == null) return;
 
-  //      if (Vector3.Distance(previousPosition, player.transform.position)   
+        if (Vector3.Distance(previousPosition, player.transform.position) < stoppingDistance)
         {
             return; // If the previous position is the same as the player's position, do nothing
         }
@@ -44,6 +44,5 @@ public class TerroristTasksNPC : MonoBehaviour
 
         agent.SetDestination(player.transform.position);
 
-        Debug.Log("Moving to player position: " + player.transform.position);
     }
 }

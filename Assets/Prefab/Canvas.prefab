@@ -1967,6 +1967,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 898095802554381374}
     m_Modifications:
+    - target: {fileID: 13575931812462941, guid: d7f2bb0fec8641348aa55a8a0bdf45c7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 237
+      objectReference: {fileID: 0}
     - target: {fileID: 7278581775496965544, guid: d7f2bb0fec8641348aa55a8a0bdf45c7, type: 3}
       propertyPath: m_Name
       value: ScorePanel

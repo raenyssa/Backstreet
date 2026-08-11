@@ -45,7 +45,7 @@
                 {
                     "name": "Interact",
                     "type": "Button",
-                    "id": "c7b366f0-1c8b-4b76-8b85-5ec511f1984f",
+                    "id": "25ac9e12-4418-41c6-a3a6-68d818a265a0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -54,7 +54,7 @@
                 {
                     "name": "Menu",
                     "type": "Button",
-                    "id": "d6fbef1e-4e53-4458-986c-c9a698823860",
+                    "id": "823067f8-93dc-499a-9842-4ebad992a228",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -240,7 +240,7 @@
                 },
                 {
                     "name": "",
-                    "id": "9d2be7dd-0a4c-4afb-9d23-f7f53f8eeebb",
+                    "id": "322fd180-6ed4-4cba-baf4-09bd70487b27",
                     "path": "<Keyboard>/#(E)",
                     "interactions": "",
                     "processors": "",
@@ -251,7 +251,7 @@
                 },
                 {
                     "name": "",
-                    "id": "5a5dc825-4337-4112-ba93-af153b7c07c0",
+                    "id": "a36d8abb-e474-43b0-977a-0e4e14492a9b",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
@@ -262,7 +262,7 @@
                 },
                 {
                     "name": "",
-                    "id": "304f8b1d-74a5-461c-8e06-d7a5c2ac650a",
+                    "id": "acfd50d4-761b-41d2-8281-444e80a81c89",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",

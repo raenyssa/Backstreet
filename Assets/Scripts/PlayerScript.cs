@@ -20,7 +20,7 @@ public class PlayerScript : MonoBehaviour
     private GameObject currentdoor;
     private GameObject currentTaskNPC;
     private GameObject currentTerroristTaskNPC;
-    public UIManager MyUIManager; // Reference to the UIManager script
+
 
     public static bool caughtNPC = false;
 
@@ -31,58 +31,62 @@ public class PlayerScript : MonoBehaviour
     {
         print("Interacting");
 
-        if (Physics.Raycast(playerMesh.transform.position + new Vector3(0, 0.5f, 0),    
+        Debug.Log(playerMesh.transform.position + new Vector3(0, 1f, 0));
+
+        Debug.DrawRay(playerMesh.transform.position + new Vector3(0, 1f, 0),    
+            playerMesh.transform.forward * 100, Color.red, 5f);
+
+        if (Physics.Raycast(playerMesh.transform.position + new Vector3(0, 1f, 0),    
             playerMesh.transform.forward, out RaycastHit hit, interactDistance, layerMask))
         {
-            
-            Debug.Log("hit");
             if (hit.collider.CompareTag("NPC"))
             {   
-
+                Debug.Log ("Interacting with NPC");
                 print($"Looking at {hit.collider.gameObject.name}");
                 currentNPC = hit.collider.gameObject;
                 caughtNPC = true;
+                return;
             }
-            else if (hit.collider.CompareTag("Door"))
+            if (hit.collider.CompareTag("Door"))
             {
                 print($"Looking at {hit.collider.gameObject.name}");
                 currentdoor=hit.collider.gameObject;
+                return;
             }
-            else if (hit.collider.CompareTag("TaskNPC"))
+            if (hit.collider.CompareTag("TaskNPC"))
             {
                 print($"Looking at {hit.collider.gameObject.name}");
-                currentTaskNPC=hit.collider.gameObject;
+                currentTaskNPC = hit.collider.gameObject;
+                return;
             }
-            else if (hit.collider.CompareTag("TerroristTaskNPC"))
+            if (hit.collider.CompareTag("TerroristTaskNPC"))
             {
                 print($"Looking at {hit.collider.gameObject.name}");
                 currentTerroristTaskNPC=hit.collider.gameObject;
+                return;
             }
-            else
-            {
-                    currentTerroristTaskNPC=null;
-            }
+            currentTerroristTaskNPC=null;
         }
         if (currentTaskNPC != null)
         {
             JaywalkTasksNPC taskNPC = currentTaskNPC.GetComponent<JaywalkTasksNPC>();
             print("Interacting with TaskNPC");
-            MyUIManager.OpenJaywalkMissionPanel();
-        }
-        else
-        {
+            GameManager.instance.uiManager.OpenJaywalkMissionPanel();
             currentTaskNPC = null;
         }
+
         if (currentTerroristTaskNPC !=null)
         {
             TerroristTasksNPC terroristTaskNPC = currentTerroristTaskNPC.GetComponent<TerroristTasksNPC>();
             print("Interacting with TerroristTaskNPC");
-            MyUIManager.OpenTerroristMissionPanel();
+            GameManager.instance.uiManager.OpenTerroristMissionPanel();
         }
         else
         {
             currentTerroristTaskNPC = null;
         }
+
+        
     }
 
     public static bool IsCaught()
@@ -91,7 +95,7 @@ public class PlayerScript : MonoBehaviour
     }
     void OnMenu(InputValue value)
     {
-        MyUIManager.ToggleMenuPanel();
+        GameManager.instance.uiManager.ToggleMenuPanel();
     }
 }
 

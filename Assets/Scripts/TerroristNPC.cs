@@ -28,7 +28,6 @@ public class TerroristNPC : MonoBehaviour
     private NavMeshAgent agent;
     private Transform currentPatrolTarget;
     private bool isCaught = false;
-    public UIManager MyUIManager; // Reference to the UIManager script
 
     void Start()
     {
@@ -102,8 +101,8 @@ public class TerroristNPC : MonoBehaviour
 
             Debug.Log("NPC has been Caught!");
             score += 5000;
-            MyUIManager.UpdateScore(score);
-            MyUIManager.UpdateCaughtPanel(NPCName, score);
+            GameManager.instance.IncreaseScore(score);
+            GameManager.instance.uiManager.UpdateCaughtPanel(NPCName, score);
             StartCoroutine(OpenCaughtPanelAfterDelay(1f));
 
         }
@@ -117,7 +116,7 @@ public class TerroristNPC : MonoBehaviour
     private IEnumerator OpenCaughtPanelAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        MyUIManager.OpenCaughtPanel();
+        GameManager.instance.uiManager.OpenCaughtPanel();
     }
 
     private void OnCollisionEnter(Collision collision)
