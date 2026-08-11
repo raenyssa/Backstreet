@@ -35104,7 +35104,11 @@ PrefabInstance:
     - target: {fileID: 230144518009047498, guid: dbd9aed532e73f4418f401be6e76f7d3, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 8372483220506869906}
+      objectReference: {fileID: 0}
+    - target: {fileID: 230144518009047498, guid: dbd9aed532e73f4418f401be6e76f7d3, type: 3}
+      propertyPath: stoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1320785654271568258, guid: dbd9aed532e73f4418f401be6e76f7d3, type: 3}
       propertyPath: m_Name
       value: TerroristTaskNPC
@@ -35115,7 +35119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7730799908578290408, guid: dbd9aed532e73f4418f401be6e76f7d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 102.96
+      value: 102.93
       objectReference: {fileID: 0}
     - target: {fileID: 7730799908578290408, guid: dbd9aed532e73f4418f401be6e76f7d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -35148,6 +35152,10 @@ PrefabInstance:
     - target: {fileID: 7730799908578290408, guid: dbd9aed532e73f4418f401be6e76f7d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204407992448054368, guid: dbd9aed532e73f4418f401be6e76f7d3, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8588500816402605106, guid: dbd9aed532e73f4418f401be6e76f7d3, type: 3}
       propertyPath: m_TagString
@@ -35815,6 +35823,22 @@ PrefabInstance:
     - target: {fileID: 3733449851962209177, guid: ff3481c6eaa44dc46a539902dddf06d5, type: 3}
       propertyPath: m_Name
       value: PlayerArmature
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144709901539125411, guid: ff3481c6eaa44dc46a539902dddf06d5, type: 3}
+      propertyPath: Gravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144709901539125411, guid: ff3481c6eaa44dc46a539902dddf06d5, type: 3}
+      propertyPath: JumpHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144709901539125411, guid: ff3481c6eaa44dc46a539902dddf06d5, type: 3}
+      propertyPath: GroundedOffset
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144709901539125411, guid: ff3481c6eaa44dc46a539902dddf06d5, type: 3}
+      propertyPath: GroundLayers.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7834588697869778621, guid: ff3481c6eaa44dc46a539902dddf06d5, type: 3}
       propertyPath: MyUIManager

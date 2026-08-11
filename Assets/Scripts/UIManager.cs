@@ -125,6 +125,8 @@ public class UIManager : MonoBehaviour
     {
         if (player == null || destination == null) return;
 
+        PlayerScript.caughtNPC = false; // Reset the caught state before teleporting;
+
         Debug.Log("Teleporting player to the destination...");
         
         // Safely move using our helper method

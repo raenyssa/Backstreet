@@ -283,6 +283,7 @@ namespace StarterAssets
         {
             if (Grounded)
             {
+
                 // reset the fall timeout timer
                 _fallTimeoutDelta = FallTimeout;
 
