@@ -9,6 +9,8 @@ TagManager:
   - Door
   - TaskNPC
   - TerroristTaskNPC
+  - Left door
+  - Right door
   layers:
   - Default
   - TransparentFX
