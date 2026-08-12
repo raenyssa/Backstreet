@@ -10864,7 +10864,7 @@ Transform:
   m_GameObject: {fileID: 590646328}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 411.35123, y: 100.266, z: 378.36002}
+  m_LocalPosition: {x: 367.8, y: 100.266, z: 378.36002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20985,7 +20985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681945552199ac34b9797fdb5631b9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
-  playerMesh: {fileID: 1916437655}
+  playerMesh: {fileID: 1191540028}
   interactDistance: 4
   layerMask:
     serializedVersion: 2
@@ -31050,11 +31050,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1d2e92430331844991cba5d1c68cdca, type: 3}
---- !u!1 &1916437655 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3837663348675104489, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-  m_PrefabInstance: {fileID: 1153547030}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1918174430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35115,7 +35110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3639828738745707452, guid: 8b612f062d93f6444a7ecc38169f668c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 409.4312
+      value: 365.87997
       objectReference: {fileID: 0}
     - target: {fileID: 3639828738745707452, guid: 8b612f062d93f6444a7ecc38169f668c, type: 3}
       propertyPath: m_LocalPosition.y
