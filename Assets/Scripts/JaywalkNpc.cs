@@ -22,13 +22,12 @@ public class JayWalkNPC : MonoBehaviour
 
     public Transform leftPoint;
     public Transform rightPoint;
-    public int score = 0;
+
     public string NPCName = "Jaywalker";
 
     private NavMeshAgent agent;
     private Transform currentPatrolTarget;
     private bool isCaught = false;
-    public UIManager MyUIManager; // Reference to the UIManager script
 
     void Start()
     {
@@ -82,7 +81,7 @@ public class JayWalkNPC : MonoBehaviour
 
     void TriggerCaughtState()
     {
-        if (isCaught != true)
+        if (!isCaught)
         {
 
             isCaught = true;
@@ -101,15 +100,11 @@ public class JayWalkNPC : MonoBehaviour
             }
 
             Debug.Log("NPC has been Caught!");
-            score += 1000;
-            MyUIManager.UpdateScore(score);
-            MyUIManager.UpdateCaughtPanel(NPCName);
-            StartCoroutine(OpenCaughtPanelAfterDelay(1f));
 
-        }
-        else
-        {
-            return;
+            GameManager.instance.IncreaseScore(1000);
+            GameManager.instance.UpdateCaught(NPCName);
+
+            StartCoroutine(OpenCaughtPanelAfterDelay(1f));
         }
 
         // TODO: Trigger caught animation or UI screen here
@@ -117,7 +112,7 @@ public class JayWalkNPC : MonoBehaviour
     private IEnumerator OpenCaughtPanelAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        MyUIManager.OpenCaughtPanel();
+        GameManager.instance.uiManager.OpenCaughtPanel();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -136,6 +131,7 @@ public class JayWalkNPC : MonoBehaviour
         if (PlayerScript.IsCaught())
         {
             npcState = NPCState.Caught;
+            npcState = NPCState.Idle;
         }
         else if (distanceToPlayer <= detectionRange)
         {
@@ -160,6 +156,9 @@ public class JayWalkNPC : MonoBehaviour
         }
 
         //NPC caught 
-        if (isCaught) return;
+        if (isCaught)
+        {
+            return;
+        }
     }
 }

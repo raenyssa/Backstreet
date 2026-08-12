@@ -28,7 +28,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "8c4abdf8-4099-493a-aa1a-129acec7c3df",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -45,7 +45,16 @@
                 {
                     "name": "Interact",
                     "type": "Button",
-                    "id": "3f9795f7-49a6-4341-bf52-65da5d7c3ab0",
+                    "id": "25ac9e12-4418-41c6-a3a6-68d818a265a0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "823067f8-93dc-499a-9842-4ebad992a228",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -231,7 +240,7 @@
                 },
                 {
                     "name": "",
-                    "id": "ee8f7746-96bb-439d-abca-a419b07b5fd0",
+                    "id": "322fd180-6ed4-4cba-baf4-09bd70487b27",
                     "path": "<Keyboard>/#(E)",
                     "interactions": "",
                     "processors": "",
@@ -242,12 +251,23 @@
                 },
                 {
                     "name": "",
-                    "id": "df880f43-39b0-4cca-8745-0bfda494d92c",
+                    "id": "a36d8abb-e474-43b0-977a-0e4e14492a9b",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "acfd50d4-761b-41d2-8281-444e80a81c89",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
