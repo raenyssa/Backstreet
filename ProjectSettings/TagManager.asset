@@ -8,6 +8,7 @@ TagManager:
   - NPC
   - Door
   - TaskNPC
+  - TerroristTaskNPC
   - Left door
   - Right door
   layers:

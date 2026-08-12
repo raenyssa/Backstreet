@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3192727513159757340}
   m_Layer: 8
   m_Name: TasksNPC
-  m_TagString: Player
+  m_TagString: TaskNPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

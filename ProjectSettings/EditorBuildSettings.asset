@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Marilyn's scene.unity
+    guid: 75e69d4e5c699364abda845bb66e7f75
+  - enabled: 1
+    path: Assets/Scenes/JaywalkScene.unity
+    guid: 52b29a48a89a1e04fa3d4ad6223cd4a7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
