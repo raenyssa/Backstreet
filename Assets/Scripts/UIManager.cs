@@ -124,7 +124,9 @@ public class UIManager : MonoBehaviour
 
         Debug.Log("MRT mission completed! Loading JaywalkScene...");
         CloseCaughtPanel();
+        Debug.Log("Panel Closed");
         SceneManager.LoadScene("JaywalkScene");
+        CloseCaughtPanel();
     }
 
     public void TeleportPlayer()

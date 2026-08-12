@@ -12,7 +12,7 @@ enum NPCState
 public class JayWalkNPC : MonoBehaviour
 {
     [SerializeField] NPCState npcState = NPCState.Idle;
-        public Transform player;
+    public Transform player;
     public float detectionRange = 5.0f;
     public float fleeDistance = 5.0f;
     public float runSpeed = 4.0f;
@@ -131,6 +131,7 @@ public class JayWalkNPC : MonoBehaviour
         if (PlayerScript.IsCaught())
         {
             npcState = NPCState.Caught;
+            npcState = NPCState.Idle;
         }
         else if (distanceToPlayer <= detectionRange)
         {
@@ -155,6 +156,9 @@ public class JayWalkNPC : MonoBehaviour
         }
 
         //NPC caught 
-        if (isCaught) return;
+        if (isCaught)
+        {
+            return;
+        }
     }
 }
