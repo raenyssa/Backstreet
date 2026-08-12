@@ -1,11 +1,9 @@
 using UnityEngine;
 using UnityEngine.AI;
- 
-public class TerroristTasksNPC : MonoBehaviour
+
+public class ShopliftTaskNPC : MonoBehaviour
 {
     public GameObject player;
-    public GameObject MyTerroristNPC;
- 
     private NavMeshAgent agent;
     public float stoppingDistance = 4f;   
 

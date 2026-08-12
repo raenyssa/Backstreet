@@ -11,6 +11,8 @@ TagManager:
   - TerroristTaskNPC
   - Left door
   - Right door
+  - ShopliftTaskNPC
+  - Collectible
   layers:
   - Default
   - TransparentFX

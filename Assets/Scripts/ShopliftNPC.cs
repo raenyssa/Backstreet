@@ -2,16 +2,16 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-enum TerroristNPCState
+enum ShopliftNPCState
 {
     Idle,
     Running,
     Caught
 }
 
-public class TerroristNPC : MonoBehaviour
+public class ShopliftNPC : MonoBehaviour
 {
-    [SerializeField] TerroristNPCState npcState = TerroristNPCState.Idle;
+    [SerializeField] ShopliftNPCState npcState = ShopliftNPCState.Idle;
     public Transform player;
     public float detectionRange = 5.0f;
     public float fleeDistance = 5.0f;
@@ -27,79 +27,18 @@ public class TerroristNPC : MonoBehaviour
 
     private NavMeshAgent agent;
     private Transform currentPatrolTarget;
-    [SerializeField] private float timeLimit = 10f;      // seconds allowed to catch the NPC
-    [SerializeField] private GameObject Explosionvfx;    // assign your VFX object in the Inspector
-    [SerializeField] private GameObject Dustvfx;    // assign your VFX object in the Inspector
-    [SerializeField] private GameObject Flashvfx;    // assign your VFX object in the Inspector
-    [SerializeField] private GameObject Sparksvfx;    // assign your VFX object in the Inspector
-    
-
-    private float timer;
     private bool isCaught = false;
-    private bool timerRunning = false;
-    [SerializeField] private GameObject objectToDrop;
-    [SerializeField] private float dropDistance = 2f;
-
-    private bool hasDropped = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         currentPatrolTarget = leftPoint;
         agent.speed = walkSpeed;
-        StartTimer();
-    }
-    public void StartTimer()
-    {
-        timer = timeLimit;
-        isCaught = false;
-        timerRunning = true;
-
-        if (Explosionvfx != null && Dustvfx!=null && Flashvfx!=null && Sparksvfx!=null)
-            {
-                Explosionvfx.SetActive(false);
-                Dustvfx.SetActive(false);
-                Flashvfx.SetActive(false);
-                Sparksvfx.SetActive(false);
-            }
-
-        
     }
 
     void Update()
     {
         StateMachine();
-
-        if (!hasDropped && player != null)
-        {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-            if (distanceToPlayer <= dropDistance)
-            {
-                DropObject();
-            }
-        }
-
-        if (!timerRunning || isCaught) return;
-
-        timer -= Time.deltaTime;
-
-        if (timer <= 0f)
-        {
-            timerRunning = false;
-            OnTimeExpired();
-        }
-    }
-    private void OnTimeExpired()
-    {
-            if (Explosionvfx != null && Dustvfx!=null && Flashvfx!=null && Sparksvfx!=null)
-                {
-                    Explosionvfx.SetActive(true);
-                    Dustvfx.SetActive(true);
-                    Flashvfx.SetActive(true);
-                    Sparksvfx.SetActive(true);
-                }
-        // optional: any other "failed" logic here, e.g. mission fail state
     }
 
     void FleeFromPlayer()
@@ -149,14 +88,7 @@ public class TerroristNPC : MonoBehaviour
 
             agent.isStopped = true;
             agent.enabled = false;
-            timerRunning = false;
-            if (Explosionvfx != null && Dustvfx!=null && Flashvfx!=null && Sparksvfx!=null)
-                {
-                    Explosionvfx.SetActive(false);
-                    Dustvfx.SetActive(false);
-                    Flashvfx.SetActive(false);
-                    Sparksvfx.SetActive(false);
-                }
+
             print(agent.isStopped);
 
             Rigidbody rb = GetComponent<Rigidbody>();
@@ -168,7 +100,7 @@ public class TerroristNPC : MonoBehaviour
             }
 
             Debug.Log("NPC has been Caught!");
-            score += 5000;
+            score += 3000;
             GameManager.instance.IncreaseScore(score);
             GameManager.instance.uiManager.UpdateCaughtPanel(NPCName, score);
             StartCoroutine(OpenCaughtPanelAfterDelay(1f));
@@ -202,27 +134,27 @@ public class TerroristNPC : MonoBehaviour
 
         if (PlayerScript.IsCaught())
         {
-            npcState = TerroristNPCState.Caught;
-            npcState = TerroristNPCState.Idle;
+            npcState = ShopliftNPCState.Caught;
+            npcState = ShopliftNPCState.Idle;
         }
         else if (distanceToPlayer <= detectionRange)
         {
-            npcState = TerroristNPCState.Running;
+            npcState = ShopliftNPCState.Running;
         }
         else
         {
-            npcState = TerroristNPCState.Idle;
+            npcState = ShopliftNPCState.Idle;
         }
 
         switch (npcState)
         {
-            case TerroristNPCState.Idle:
+            case ShopliftNPCState.Idle:
                 PatrolBetweenPoints();
                 break;
-            case TerroristNPCState.Running:
+            case ShopliftNPCState.Running:
                 FleeFromPlayer();
                 break;
-            case TerroristNPCState.Caught:
+            case ShopliftNPCState.Caught:
                 TriggerCaughtState();
                 break;
         }
@@ -232,26 +164,5 @@ public class TerroristNPC : MonoBehaviour
         {
             return;
         }
-    }
-    private void DropObject()
-    {
-        hasDropped = true;
-
-        if (objectToDrop == null)
-            return;
-
-        // Remove it from the NPC
-        objectToDrop.transform.SetParent(null);
-
-        // Make it affected by physics
-        Rigidbody rb = objectToDrop.GetComponent<Rigidbody>();
-
-        if (rb != null)
-        {
-            rb.isKinematic = false;
-            rb.useGravity = true;
-        }
-
-        Debug.Log("NPC dropped the object!");
     }
 }

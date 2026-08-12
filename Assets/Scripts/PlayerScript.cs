@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     private GameObject currentdoor;
     private GameObject currentTaskNPC;
     private GameObject currentTerroristTaskNPC;
+    private GameObject currentShopliftTaskNPC;
 
 
     public static bool caughtNPC = false;
@@ -30,8 +31,6 @@ public class PlayerScript : MonoBehaviour
     void OnInteract()
     {
         print("Interacting");
-
-        Debug.Log(playerMesh.transform.position + new Vector3(0, 1f, 0));
 
         Debug.DrawRay(playerMesh.transform.position + new Vector3(0, 1f, 0),    
             playerMesh.transform.forward * 100, Color.red, 5f);
@@ -51,13 +50,18 @@ public class PlayerScript : MonoBehaviour
             {
                 print($"Looking at {hit.collider.gameObject.name}");
                 currentdoor=hit.collider.gameObject;
-                return;
             }
             if (hit.collider.CompareTag("TaskNPC"))
             {
                 print($"Looking at {hit.collider.gameObject.name}");
                 currentTaskNPC = hit.collider.gameObject;
                 return;
+            }
+            if (hit.collider.CompareTag("ShopliftTaskNPC"))
+            {
+                print($"Looking at {hit.collider.gameObject.name}");
+                currentShopliftTaskNPC=hit.collider.gameObject;
+                return;                
             }
             if (hit.collider.CompareTag("TerroristTaskNPC"))
             {
@@ -67,6 +71,14 @@ public class PlayerScript : MonoBehaviour
             }
             currentTerroristTaskNPC=null;
         }
+        if (currentdoor!=null)
+        {
+            InteractableDoorScript door = currentdoor.GetComponentInParent<InteractableDoorScript>();
+            print(door);
+            print($"Interacting with {currentdoor.name}");
+            door.open();
+                
+            }
         if (currentTaskNPC != null)
         {
             JaywalkTasksNPC taskNPC = currentTaskNPC.GetComponent<JaywalkTasksNPC>();
@@ -74,16 +86,22 @@ public class PlayerScript : MonoBehaviour
             GameManager.instance.uiManager.OpenJaywalkMissionPanel();
             currentTaskNPC = null;
         }
-
         if (currentTerroristTaskNPC !=null)
         {
             TerroristTasksNPC terroristTaskNPC = currentTerroristTaskNPC.GetComponent<TerroristTasksNPC>();
             print("Interacting with TerroristTaskNPC");
             GameManager.instance.uiManager.OpenTerroristMissionPanel();
         }
+                if (currentShopliftTaskNPC!=null)
+        {
+            ShopliftTaskNPC taskNPC = currentShopliftTaskNPC.GetComponent<ShopliftTaskNPC>();
+            print("Interacting with ShopliftTaskNPC");
+            GameManager.instance.uiManager.OpenShopliftMissionPanel();
+            currentShopliftTaskNPC = null;            
+        }
         else
         {
-            currentTerroristTaskNPC = null;
+            currentShopliftTaskNPC = null;
         }
 
         
@@ -96,6 +114,15 @@ public class PlayerScript : MonoBehaviour
     void OnMenu(InputValue value)
     {
         GameManager.instance.uiManager.ToggleMenuPanel();
+    }
+        void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Collectible"))
+        {
+            var SusItem = other.gameObject.GetComponent<Collectible>();
+            SusItem.Collect();
+
+        }
     }
 }
 

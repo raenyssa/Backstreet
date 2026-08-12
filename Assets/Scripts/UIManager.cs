@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     public GameObject ShopliftMissionPanel; // Reference to the panel that shows mission-related information
     public GameObject TerroristMissionPanel; // Reference to the panel that shows mission-related information
     public GameObject JaywalkTaskNPC; // Reference to the JaywalkTaskNPC GameObject
+    public GameObject TerroristTaskNPC;
+    public GameObject ShopliftTaskNPC;
     public static UIManager Instance { get; internal set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -109,11 +111,6 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void CompleteSupermarket()
-    {
-        
-    }
-
     public void CompleteMRT()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -127,6 +124,21 @@ public class UIManager : MonoBehaviour
         Debug.Log("Panel Closed");
         SceneManager.LoadScene("JaywalkScene");
     }
+
+    public void CompleteSupermarket()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName != "Gladis")
+        {
+            return;
+        }
+
+        Debug.Log("Shoplift mission completed! Loading JaywalkScene...");
+        CloseCaughtPanel();
+        Debug.Log("Panel Closed");
+        SceneManager.LoadScene("JaywalkScene");
+    }
+
 
     public void TeleportPlayer()
     {
@@ -171,6 +183,16 @@ public class UIManager : MonoBehaviour
         Debug.Log("Terrorist mission accepted!");
         CloseTerroristMissionPanel();
         SceneManager.LoadScene("Marilyn's scene");
+        Destroy(TerroristTaskNPC);
+    }
+
+    public void AcceptShoplifterMission()
+    {
+        Debug.Log("ShopliftMissionPanel mission accept!");
+        CloseShopliftMissionPanel();
+        SceneManager.LoadScene("Gladis");
+        Destroy(ShopliftTaskNPC);
+        
     }
 
 
