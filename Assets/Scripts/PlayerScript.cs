@@ -59,7 +59,7 @@ public class PlayerScript : MonoBehaviour
             {
                 print($"Looking at {hit.collider.gameObject.name}");
                 currentTaskNPC = hit.collider.gameObject;
-                return;
+                
             }
             if (hit.collider.CompareTag("ShopliftTaskNPC"))
             {
@@ -71,7 +71,7 @@ public class PlayerScript : MonoBehaviour
             {
                 print($"Looking at {hit.collider.gameObject.name}");
                 currentVandaliseTaskNPC=hit.collider.gameObject;
-                return;
+                
             }
             if (hit.collider.CompareTag("TerroristTaskNPC"))
             {
