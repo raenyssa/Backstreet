@@ -2447,6 +2447,8 @@ MonoBehaviour:
   ShopliftMissionPanel: {fileID: 2303014777799933692}
   TerroristMissionPanel: {fileID: 3807951214604676184}
   LostPanel: {fileID: 6033712096121548435}
+  StartMenu: {fileID: 0}
+  HowToPlay: {fileID: 0}
   JaywalkTaskNPC: {fileID: 0}
   TerroristTaskNPC: {fileID: 0}
   ShopliftTaskNPC: {fileID: 0}
