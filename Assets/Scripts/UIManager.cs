@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public GameObject MenuPanel; // Reference to the panel that shows the menu
     public GameObject ShopliftMissionPanel; // Reference to the panel that shows mission-related information
     public GameObject TerroristMissionPanel; // Reference to the panel that shows mission-related information
+    public GameObject LostPanel;
     public GameObject JaywalkTaskNPC; // Reference to the JaywalkTaskNPC GameObject
     public GameObject TerroristTaskNPC;
     public GameObject ShopliftTaskNPC;
@@ -30,6 +31,8 @@ public class UIManager : MonoBehaviour
         MenuPanel.SetActive(false);
         ShopliftMissionPanel.SetActive(false);
         TerroristMissionPanel.SetActive(false);
+        LostPanel.SetActive(false);
+
     }
 
     public void UpdateScore(int score)
@@ -95,6 +98,20 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+    public void OpenLostPanel()
+    {
+        LostPanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void CloseLostPanel()
+    {
+        LostPanel.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+    
     
 
     public void ToggleMenuPanel()
@@ -106,8 +123,15 @@ public class UIManager : MonoBehaviour
         CursorLockMode.Locked;
     }
 
+
     public void Restart()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Lose()
+    {
+        Debug.Log("You have DIED!");
+        CloseLostPanel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

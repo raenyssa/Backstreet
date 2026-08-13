@@ -98,6 +98,7 @@ public class TerroristNPC : MonoBehaviour
                     Dustvfx.SetActive(true);
                     Flashvfx.SetActive(true);
                     Sparksvfx.SetActive(true);
+                    StartCoroutine(OpenLostPanelAfterDelay(1f));
                 }
         // optional: any other "failed" logic here, e.g. mission fail state
     }
@@ -185,6 +186,11 @@ public class TerroristNPC : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         GameManager.instance.uiManager.OpenCaughtPanel();
+    }
+    private IEnumerator OpenLostPanelAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GameManager.instance.uiManager.OpenLostPanel();
     }
 
     private void OnCollisionEnter(Collision collision)
