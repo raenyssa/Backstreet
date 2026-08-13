@@ -5,6 +5,7 @@ public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject LeftDoor;
     [SerializeField] private GameObject RightDoor;
+    public AudioSource PoliceSlidingDoorAudio;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,6 +41,10 @@ public class DoorTrigger : MonoBehaviour
                 {
                     LeftDoor.GetComponent<PoliceSlidingDoor>().Close();
                     RightDoor.GetComponent<PoliceSlidingDoorRight>().Close();
+                    if (PoliceSlidingDoorAudio != null)
+                    {
+                        PoliceSlidingDoorAudio.Play();
+                    }
                 }
             else if (sceneName == "Marilyn's scene")
                 {

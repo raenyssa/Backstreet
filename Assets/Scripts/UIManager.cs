@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     // Drag an empty GameObject or Target Pad here to set the destination
     public Transform destination; 
     public GameObject JaywalkDestination; // Reference to the destination GameObject for the jaywalking mission
+    public GameObject VandaliseDestination;
     public TMP_Text caughttext; // Reference to the TextMeshProUGUI component for displaying the caught message
     public TMP_Text scoreText; // Reference to the TextMeshProUGUI component for displaying the score
     public GameObject CaughtPanel; // Reference to the panel that shows when the player is caught
@@ -17,14 +18,17 @@ public class UIManager : MonoBehaviour
     public GameObject MenuPanel; // Reference to the panel that shows the menu
     public GameObject ShopliftMissionPanel; // Reference to the panel that shows mission-related information
     public GameObject TerroristMissionPanel; // Reference to the panel that shows mission-related information
+    public GameObject VandaliseMissionPanel;
     public GameObject LostPanel;
     public GameObject StartMenu;
     public GameObject HowToPlay;
     public GameObject JaywalkTaskNPC; // Reference to the JaywalkTaskNPC GameObject
+    public GameObject VandaliseTaskNPC;
     public GameObject TerroristTaskNPC;
     public GameObject ShopliftTaskNPC;
+    public GameObject WinPanel;
     public static UIManager Instance { get; internal set; }
-
+    public AudioSource SupermarketBellAudio;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -35,6 +39,8 @@ public class UIManager : MonoBehaviour
         TerroristMissionPanel.SetActive(false);
         LostPanel.SetActive(false);
         HowToPlay.SetActive(false);
+        WinPanel.SetActive(false);
+        VandaliseMissionPanel.SetActive(false);
 
     }
 
@@ -94,6 +100,19 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+    public void OpenVandaliseMissionPanel()
+    {
+        VandaliseMissionPanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void CloseVandaliseMissionPanel()
+    {
+        VandaliseMissionPanel.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     public void OpenShopliftMissionPanel()
     {
         ShopliftMissionPanel.SetActive(true);
@@ -132,6 +151,13 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+    public void OpenWinPanel()
+    {
+        WinPanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public void OpenLostPanel()
     {
         LostPanel.SetActive(true);
@@ -236,6 +262,22 @@ public class UIManager : MonoBehaviour
         Destroy(JaywalkTaskNPC); // Destroy the JaywalkTaskNPC GameObject after teleporting
 
     }
+    public void AcceptVandaliseMission()
+    {
+        if (player == null || VandaliseDestination == null) return;
+
+        // Logic to accept the vandalise mission
+        Debug.Log("Vandalise mission accepted!");
+        CloseVandaliseMissionPanel();
+        
+        // Safely move using our helper method
+        ExecuteTeleport(player, VandaliseDestination.transform.position);
+
+        Debug.Log("Destroying at" + VandaliseTaskNPC.transform.position);
+
+        Destroy(VandaliseTaskNPC); // Destroy the VandaliseTaskNPC GameObject after teleporting
+
+    }
     public void AcceptTerroristMission()
     {
         Debug.Log("Terrorist mission accepted!");
@@ -250,6 +292,10 @@ public class UIManager : MonoBehaviour
         CloseShopliftMissionPanel();
         SceneManager.LoadScene("Gladis");
         Destroy(ShopliftTaskNPC);
+        if (SupermarketBellAudio != null)
+        {
+            SupermarketBellAudio.Play();
+        }
         
     }
 

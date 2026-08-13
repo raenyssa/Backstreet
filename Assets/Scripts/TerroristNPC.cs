@@ -24,7 +24,7 @@ public class TerroristNPC : MonoBehaviour
     public Transform rightPoint;
     public int score = 0;
     public string NPCName = "Terrorist";
-
+    public AudioSource DropBagAudio;
     private NavMeshAgent agent;
     private Transform currentPatrolTarget;
     [SerializeField] private float timeLimit = 10f;      // seconds allowed to catch the NPC
@@ -39,6 +39,8 @@ public class TerroristNPC : MonoBehaviour
     private bool timerRunning = false;
     [SerializeField] private GameObject objectToDrop;
     [SerializeField] private float dropDistance = 2f;
+    public AudioSource ExplosionAudio;
+    public AudioSource PoliceWarningAudio;
 
     private bool hasDropped = false;
 
@@ -98,6 +100,10 @@ public class TerroristNPC : MonoBehaviour
                     Dustvfx.SetActive(true);
                     Flashvfx.SetActive(true);
                     Sparksvfx.SetActive(true);
+                    if (ExplosionAudio != null)
+                    {
+                        ExplosionAudio.Play();
+                    }
                     StartCoroutine(OpenLostPanelAfterDelay(1f));
                 }
         // optional: any other "failed" logic here, e.g. mission fail state
@@ -214,6 +220,10 @@ public class TerroristNPC : MonoBehaviour
         else if (distanceToPlayer <= detectionRange)
         {
             npcState = TerroristNPCState.Running;
+            if (PoliceWarningAudio != null)
+            {
+                PoliceWarningAudio.Play();
+            }
         }
         else
         {
@@ -257,7 +267,13 @@ public class TerroristNPC : MonoBehaviour
             rb.isKinematic = false;
             rb.useGravity = true;
         }
+                //Play the DropBag sound
+                if (DropBagAudio != null)
+                {
+                    DropBagAudio.Play();
+                }        
 
         Debug.Log("NPC dropped the object!");
+
     }
 }

@@ -22,6 +22,7 @@ public class JayWalkNPC : MonoBehaviour
 
     public Transform leftPoint;
     public Transform rightPoint;
+    public AudioSource PoliceWarningAudio;
 
     public string NPCName = "Jaywalker";
 
@@ -136,6 +137,10 @@ public class JayWalkNPC : MonoBehaviour
         else if (distanceToPlayer <= detectionRange)
         {
             npcState = NPCState.Running;
+            if (PoliceWarningAudio != null)
+            {
+                PoliceWarningAudio.Play();
+            }
         }
         else
         {

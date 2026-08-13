@@ -13,6 +13,7 @@ TagManager:
   - Right door
   - ShopliftTaskNPC
   - Collectible
+  - VandaliseTaskNPC
   layers:
   - Default
   - TransparentFX

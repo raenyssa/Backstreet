@@ -21,6 +21,8 @@ public class PlayerScript : MonoBehaviour
     private GameObject currentTaskNPC;
     private GameObject currentTerroristTaskNPC;
     private GameObject currentShopliftTaskNPC;
+    private GameObject currentVandaliseTaskNPC;
+    public AudioSource CollectibleAudio;
     [SerializeField] private GameObject cam;
 
 
@@ -65,12 +67,19 @@ public class PlayerScript : MonoBehaviour
                 currentShopliftTaskNPC=hit.collider.gameObject;
                 return;                
             }
+            if (hit.collider.CompareTag("VandaliseTaskNPC"))
+            {
+                print($"Looking at {hit.collider.gameObject.name}");
+                currentVandaliseTaskNPC=hit.collider.gameObject;
+                return;
+            }
             if (hit.collider.CompareTag("TerroristTaskNPC"))
             {
                 print($"Looking at {hit.collider.gameObject.name}");
                 currentTerroristTaskNPC=hit.collider.gameObject;
                 return;
             }
+
             currentTerroristTaskNPC=null;
         }
         if (currentdoor!=null)
@@ -101,6 +110,14 @@ public class PlayerScript : MonoBehaviour
             GameManager.instance.uiManager.OpenShopliftMissionPanel();
             currentShopliftTaskNPC = null;          
         }
+        if (currentVandaliseTaskNPC!=null)
+        {
+            VandaliseTaskNPC taskNPC = currentVandaliseTaskNPC.GetComponent<VandaliseTaskNPC>();
+            print("Interacting with VandaliseTaskNPC");
+            GameManager.instance.uiManager.OpenVandaliseMissionPanel();
+            currentVandaliseTaskNPC = null;
+        }          
+        
         else
         {
             currentShopliftTaskNPC = null;
@@ -123,6 +140,10 @@ public class PlayerScript : MonoBehaviour
         {
             var SusItem = other.gameObject.GetComponent<Collectible>();
             SusItem.Collect();
+                if (CollectibleAudio != null)
+                {
+                    CollectibleAudio.Play();
+                }
 
         }
     }

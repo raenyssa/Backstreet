@@ -2,16 +2,16 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-enum ShopliftNPCState
+enum VandalistNPCState
 {
     Idle,
     Running,
     Caught
 }
 
-public class ShopliftNPC : MonoBehaviour
+public class VandalistNPC : MonoBehaviour
 {
-    [SerializeField] ShopliftNPCState npcState = ShopliftNPCState.Idle;
+    [SerializeField] VandalistNPCState npcState = VandalistNPCState.Idle;
     public Transform player;
     public float detectionRange = 5.0f;
     public float fleeDistance = 5.0f;
@@ -22,14 +22,13 @@ public class ShopliftNPC : MonoBehaviour
 
     public Transform leftPoint;
     public Transform rightPoint;
-    public int score = 0;
-    public string NPCName = "Terrorist";
+    public AudioSource PoliceWarningAudio;
+
+    public string NPCName = "Vandalist";
 
     private NavMeshAgent agent;
     private Transform currentPatrolTarget;
     private bool isCaught = false;
-    public AudioSource WinAudio;
-    public AudioSource PoliceWarningAudio;
 
     void Start()
     {
@@ -83,7 +82,7 @@ public class ShopliftNPC : MonoBehaviour
 
     void TriggerCaughtState()
     {
-        if (isCaught != true)
+        if (!isCaught)
         {
 
             isCaught = true;
@@ -102,27 +101,19 @@ public class ShopliftNPC : MonoBehaviour
             }
 
             Debug.Log("NPC has been Caught!");
-            score += 3000;
-            GameManager.instance.IncreaseScore(score);
-            GameManager.instance.uiManager.UpdateCaughtPanel(NPCName, score);
-            StartCoroutine(OpenWinPanelAfterDelay(1f));
 
-        }
-        else
-        {
-            return;
+            GameManager.instance.IncreaseScore(2000);
+            GameManager.instance.UpdateCaught(NPCName);
+
+            StartCoroutine(OpenCaughtPanelAfterDelay(1f));
         }
 
         // TODO: Trigger caught animation or UI screen here
     }
-    private IEnumerator OpenWinPanelAfterDelay(float delay)
+    private IEnumerator OpenCaughtPanelAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        GameManager.instance.uiManager.OpenWinPanel();
-            if (WinAudio != null)
-            {
-                WinAudio.Play();
-            }        
+        GameManager.instance.uiManager.OpenCaughtPanel();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -140,12 +131,12 @@ public class ShopliftNPC : MonoBehaviour
 
         if (PlayerScript.IsCaught())
         {
-            npcState = ShopliftNPCState.Caught;
-            npcState = ShopliftNPCState.Idle;
+            npcState = VandalistNPCState.Caught;
+            npcState = VandalistNPCState.Idle;
         }
         else if (distanceToPlayer <= detectionRange)
         {
-            npcState = ShopliftNPCState.Running;
+            npcState = VandalistNPCState.Running;
             if (PoliceWarningAudio != null)
             {
                 PoliceWarningAudio.Play();
@@ -153,24 +144,24 @@ public class ShopliftNPC : MonoBehaviour
         }
         else
         {
-            npcState = ShopliftNPCState.Idle;
+            npcState = VandalistNPCState.Idle;
         }
 
         switch (npcState)
         {
-            case ShopliftNPCState.Idle:
+            case VandalistNPCState.Idle:
                 PatrolBetweenPoints();
                 break;
-            case ShopliftNPCState.Running:
+            case VandalistNPCState.Running:
                 FleeFromPlayer();
                 break;
-            case ShopliftNPCState.Caught:
+            case VandalistNPCState.Caught:
                 TriggerCaughtState();
                 break;
         }
 
         //NPC caught 
-        if (isCaught) 
+        if (isCaught)
         {
             return;
         }
