@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     public GameObject ShopliftMissionPanel; // Reference to the panel that shows mission-related information
     public GameObject TerroristMissionPanel; // Reference to the panel that shows mission-related information
     public GameObject LostPanel;
+    public GameObject StartMenu;
+    public GameObject HowToPlay;
     public GameObject JaywalkTaskNPC; // Reference to the JaywalkTaskNPC GameObject
     public GameObject TerroristTaskNPC;
     public GameObject ShopliftTaskNPC;
@@ -32,6 +34,7 @@ public class UIManager : MonoBehaviour
         ShopliftMissionPanel.SetActive(false);
         TerroristMissionPanel.SetActive(false);
         LostPanel.SetActive(false);
+        HowToPlay.SetActive(false);
 
     }
 
@@ -44,6 +47,37 @@ public class UIManager : MonoBehaviour
     public void UpdateCaughtPanel(string NPCName, int score)
     {
         caughttext.text = $" Congratulations!\nYou have caught the {NPCName} and earned {score} points!";
+    }
+    public void OpenStartMenu()
+    {
+        StartMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;        
+    }
+        public void CloseStartMenu()
+    {
+        StartMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;        
+    }
+        public void OpenHowToPlayPanel()
+    {
+        HowToPlay.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;        
+    }
+        public void CloseHowToPlayPanel()
+    {
+        HowToPlay.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;        
+    }
+
+    public void Enter()
+    {
+        CloseStartMenu();
+        OpenHowToPlayPanel();
+
     }
 
     // Update is called once per frame

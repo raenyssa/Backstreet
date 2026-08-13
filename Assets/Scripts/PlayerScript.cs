@@ -21,12 +21,12 @@ public class PlayerScript : MonoBehaviour
     private GameObject currentTaskNPC;
     private GameObject currentTerroristTaskNPC;
     private GameObject currentShopliftTaskNPC;
+    [SerializeField] private GameObject cam;
 
 
     public static bool caughtNPC = false;
 
-    [SerializeField]
-    GameObject currentCollider;
+    
 
     void OnInteract()
     {
@@ -35,9 +35,11 @@ public class PlayerScript : MonoBehaviour
         Debug.DrawRay(playerMesh.transform.position + new Vector3(0, 1f, 0),    
             playerMesh.transform.forward * 100, Color.red, 5f);
 
-        if (Physics.Raycast(playerMesh.transform.position + new Vector3(0, 1f, 0),    
-            playerMesh.transform.forward, out RaycastHit hit, interactDistance, layerMask))
+        if (Physics.Raycast(cam.transform.position,    
+            cam.transform.forward, out RaycastHit hit, interactDistance, layerMask))
         {
+            
+            print(hit.collider.tag);
             if (hit.collider.CompareTag("NPC"))
             {   
                 Debug.Log ("Interacting with NPC");
@@ -92,12 +94,12 @@ public class PlayerScript : MonoBehaviour
             print("Interacting with TerroristTaskNPC");
             GameManager.instance.uiManager.OpenTerroristMissionPanel();
         }
-                if (currentShopliftTaskNPC!=null)
+        if (currentShopliftTaskNPC!=null)
         {
             ShopliftTaskNPC taskNPC = currentShopliftTaskNPC.GetComponent<ShopliftTaskNPC>();
             print("Interacting with ShopliftTaskNPC");
             GameManager.instance.uiManager.OpenShopliftMissionPanel();
-            currentShopliftTaskNPC = null;            
+            currentShopliftTaskNPC = null;          
         }
         else
         {
