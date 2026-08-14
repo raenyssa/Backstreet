@@ -233,3 +233,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847bed0789eac4e468430a71ee9b7a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  player: {fileID: 0}
+  stoppingDistance: 4

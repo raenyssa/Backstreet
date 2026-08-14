@@ -233,3 +233,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb0a38764dc04644a73ff041c96b564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  npcState: 0
+  player: {fileID: 0}
+  detectionRange: 5
+  fleeDistance: 5
+  runSpeed: 4
+  walkSpeed: 2
+  catchDistance: 1
+  leftPoint: {fileID: 0}
+  rightPoint: {fileID: 0}
+  score: 0
+  NPCName: Terrorist
+  DropBagAudio: {fileID: 0}
+  timeLimit: 10
+  Explosionvfx: {fileID: 0}
+  Dustvfx: {fileID: 0}
+  Flashvfx: {fileID: 0}
+  Sparksvfx: {fileID: 0}
+  objectToDrop: {fileID: 0}
+  dropDistance: 2
+  ExplosionAudio: {fileID: 0}
+  PoliceWarningAudio: {fileID: 0}

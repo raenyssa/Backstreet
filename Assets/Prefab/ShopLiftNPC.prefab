@@ -132,6 +132,8 @@ MonoBehaviour:
   rightPoint: {fileID: 0}
   score: 0
   NPCName: Terrorist
+  WinAudio: {fileID: 0}
+  PoliceWarningAudio: {fileID: 0}
 --- !u!1 &6556665245981183109
 GameObject:
   m_ObjectHideFlags: 0

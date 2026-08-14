@@ -119,6 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5342c8eb859381e4494f8651ac7ce965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  player: {fileID: 0}
+  MyTerroristNPC: {fileID: 0}
+  stoppingDistance: 4
 --- !u!1 &8588500816402605106
 GameObject:
   m_ObjectHideFlags: 0

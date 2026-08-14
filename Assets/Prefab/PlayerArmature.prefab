@@ -1245,6 +1245,9 @@ MonoBehaviour:
   SprintSpeed: 5.335
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
+  AudioFootsteps: {fileID: 0}
+  LandingAudio: {fileID: 0}
+  AudioFoley: {fileID: 0}
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
   FootstepAudioClips:
   - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
@@ -1473,8 +1476,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  MyUIManager: {fileID: 0}
-  currentCollider: {fileID: 0}
+  CollectibleAudio: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!114 &1279616040992741132
 MonoBehaviour:
   m_ObjectHideFlags: 0

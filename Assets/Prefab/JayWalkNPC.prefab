@@ -79,6 +79,8 @@ MonoBehaviour:
   catchDistance: 1
   leftPoint: {fileID: 0}
   rightPoint: {fileID: 0}
+  PoliceWarningAudio: {fileID: 0}
+  NPCName: Jaywalker
 --- !u!64 &3380110376863299091
 MeshCollider:
   m_ObjectHideFlags: 0

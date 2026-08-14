@@ -2439,6 +2439,7 @@ MonoBehaviour:
   player: {fileID: 0}
   destination: {fileID: 0}
   JaywalkDestination: {fileID: 0}
+  VandaliseDestination: {fileID: 0}
   caughttext: {fileID: 1807880101722645604}
   scoreText: {fileID: 8735616373879916186}
   CaughtPanel: {fileID: 6112995063771254788}
@@ -2446,12 +2447,16 @@ MonoBehaviour:
   MenuPanel: {fileID: 3948098997139669724}
   ShopliftMissionPanel: {fileID: 2303014777799933692}
   TerroristMissionPanel: {fileID: 3807951214604676184}
+  VandaliseMissionPanel: {fileID: 0}
   LostPanel: {fileID: 6033712096121548435}
   StartMenu: {fileID: 0}
   HowToPlay: {fileID: 0}
   JaywalkTaskNPC: {fileID: 0}
+  VandaliseTaskNPC: {fileID: 0}
   TerroristTaskNPC: {fileID: 0}
   ShopliftTaskNPC: {fileID: 0}
+  WinPanel: {fileID: 0}
+  SupermarketBellAudio: {fileID: 0}
 --- !u!1001 &907846234294234624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2724,7 +2729,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 491000172460021366, guid: c1f3608c24bb39a4aa4acc07029d5a5d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7882688310556409126}
+    - targetCorrespondingSourceObject: {fileID: 491000172460021366, guid: c1f3608c24bb39a4aa4acc07029d5a5d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1590269275815926440}
   m_SourcePrefab: {fileID: 100100000, guid: c1f3608c24bb39a4aa4acc07029d5a5d, type: 3}
 --- !u!114 &1807880101722645604 stripped
 MonoBehaviour:
@@ -2747,3 +2758,47 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 491000172460021366, guid: c1f3608c24bb39a4aa4acc07029d5a5d, type: 3}
   m_PrefabInstance: {fileID: 5910370404076078706}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &7882688310556409126
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112995063771254788}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!64 &1590269275815926440
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112995063771254788}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
