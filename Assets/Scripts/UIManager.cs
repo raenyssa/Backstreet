@@ -222,6 +222,14 @@ public class UIManager : MonoBehaviour
         Debug.Log("Panel Closed");
         SceneManager.LoadScene("JaywalkScene");
     }
+    public void ExitGame()
+    {
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                Application.Quit();
+        #endif
+    }
 
 
     public void TeleportPlayer()
