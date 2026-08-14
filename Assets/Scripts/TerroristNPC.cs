@@ -1,3 +1,11 @@
+/*
+ * Author: Marilyn Tan
+ * Date: 8th August 2026
+ * File: TerroristNPC
+ * Description:Controls the behaviour of the terrorist NPC, including patrolling, 
+ fleeing from the player, dropping an object, and handling the mission timer.
+ 
+ */
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;

@@ -1,3 +1,10 @@
+/*
+ * Author: Marilyn Tan
+ * Date: 11th August 2026
+ * File: MRTDoorLeft
+ * Description: Controls the opening and closing animation of the left MRT door.
+ 
+ */
 using UnityEngine;
 
 /// <summary>

@@ -1,3 +1,10 @@
+/*
+ * Author: Raenyssa Lim
+ * Date: 11th August 2026
+ * File: HoldingJailDoor
+ * Description: Controls the opening and closing animation of the holding jail door.
+ 
+ */
 using UnityEngine;
 
 /// <summary>

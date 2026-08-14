@@ -1,3 +1,10 @@
+/*
+ * Author: Marilyn Tan
+ * Date: 11th August 2026
+ * File: GameManager
+ * Description: Manages game-wide information such as the player's score and caught NPC information.
+ 
+ */
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms.Impl;

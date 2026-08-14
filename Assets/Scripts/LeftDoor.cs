@@ -1,3 +1,10 @@
+/*
+ * Author: Gladis Koh
+ * Date: 9th August 2026
+ * File: LeftDoor
+ * Description: Controls the movement and interaction of the left door.
+ 
+ */
 using UnityEngine;
 using UnityEngine.InputSystem;
 

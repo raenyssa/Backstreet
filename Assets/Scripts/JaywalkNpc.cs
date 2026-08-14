@@ -1,3 +1,10 @@
+/*
+ * Author: Gladis Koh
+ * Date: 11th August 2026
+ * File: Jaywalk
+ * Description: Represents the different states that the jaywalking NPC can be in.
+ 
+ */
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;

@@ -1,3 +1,10 @@
+/*
+ * Author: Marilyn Tan
+ * Date: 11th August 2026
+ * File: JayWalkTask
+ * Description: Controls the movement of the jaywalking task NPC towards the player.
+ 
+ */
 using UnityEngine;
 using UnityEngine.AI;
 

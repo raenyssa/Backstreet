@@ -1,3 +1,10 @@
+/*
+ * Author: Marilyn Tan
+ * Date: 5th August 2026
+ * File: PLayerScript
+ * Description: Handles player interactions with NPCs, doors, mission NPCs, collectibles,and the game menu.
+ 
+ */
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms.Impl;

@@ -1,3 +1,10 @@
+/*
+ * Author: Gladis Koh
+ * Date: 13th August 2026
+ * File: VandaliseTaskNPC
+ * Description: Represents the different states that the jaywalking NPC can be in.
+ 
+ */
 using UnityEngine;
 using UnityEngine.AI;
 

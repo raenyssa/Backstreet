@@ -1,3 +1,10 @@
+/*
+ * Author: Raenyssa Lim
+ * Date: 10th August 2026
+ * File: JailCellDoor
+ * Description: Controls the interaction and opening or closing of a jail cell door.
+ 
+ */
 using UnityEngine;
 using UnityEngine.UIElements;
 

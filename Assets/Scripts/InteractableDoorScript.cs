@@ -1,3 +1,10 @@
+/*
+ * Author: Marilyn Tan
+ * Date: 8th August 2026
+ * File: InteractableDoor
+ * Description: Controls the opening and closing of an interactable door.
+ 
+ */
 using UnityEngine;
 
 /// <summary>

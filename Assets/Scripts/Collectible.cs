@@ -1,3 +1,10 @@
+/*
+ * Author: Gladis Koh
+ * Date: 9 th August 2026
+ * File:Collectible
+ * Description: Handles the behaviour of a collectible object that can be collected by the player.
+ 
+ */
 using UnityEngine;
 
 /// <summary>

@@ -1,3 +1,12 @@
+/*
+ * Author: Marilyn Tan
+ * Date: 4th August 2026
+ * File: TerroristNPC
+ * Description: Manages the game's user interface, including mission panels, menus,
+score displays, scene transitions, player teleportation, and game states.
+ fleeing from the player, dropping an object, and handling the mission timer.
+ 
+ */
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;

@@ -1,3 +1,10 @@
+/*
+ * Author: GladisKoh
+ * Date: 12th August 2026
+ * File:ShopLiftTaskNPC
+ * Description: Controls the movement of the terrorist task NPC towards the player.
+ 
+ */
 using UnityEngine;
 using UnityEngine.AI;
 

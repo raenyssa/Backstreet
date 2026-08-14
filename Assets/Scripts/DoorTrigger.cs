@@ -1,4 +1,10 @@
-
+/*
+ * Author: Raenyssa Lim
+ * Date: 11th August 2026
+ * File: DoorTrigger
+ * Description: Controls the opening and closing of doors when the player enters or exits a trigger.
+ 
+ */
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

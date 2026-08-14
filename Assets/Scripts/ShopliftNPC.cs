@@ -1,3 +1,10 @@
+/*
+ * Author: Marilyn Tan
+ * Date: 6th August 2026
+ * File: SHopLiftNPC
+ * Description: Represents the different states that the shoplifting NPC can be in.
+ 
+ */
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;

@@ -1,3 +1,10 @@
+/*
+ * Author: Raenyssa
+ * Date: 13th August 2026
+ * File: VandaliseNPC
+ * Description: Represents the different states that the vandalist NPC can be in.
+ 
+ */
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;

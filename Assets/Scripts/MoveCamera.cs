@@ -1,3 +1,10 @@
+/*
+ * Author: Marilyn Tan
+ * Date: 11th August 2026
+ * File: MoveCamera
+ * Description: Controls the movement of the camera rotation
+ 
+ */
 using UnityEngine;
 using UnityEngine.InputSystem;
 

@@ -1,3 +1,10 @@
+/*
+ * Author: Raenyssa Lim
+ * Date: 5th August 2026
+ * File: PoliceSlidingDoor
+ * Description: Controls the opening and closing animation of the police sliding door.
+ 
+ */
 using UnityEngine;
 
 /// <summary>

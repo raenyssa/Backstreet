@@ -1,3 +1,10 @@
+/*
+ * Author: MarilynTan
+ * Date: 12th August 2026
+ * File: RoamNPC
+ * Description: Controls random roaming behaviour for an NPC using a NavMeshAgent.
+ 
+ */
 using UnityEngine;
 using UnityEngine.AI;
 
